@@ -16,6 +16,13 @@ variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '5.x'
 
+schedules:
+- cron: "0 3 * * Mon-Fri"
+  displayName: daily build | M-F 3:00 AM (UTC) 
+  branches:
+    include:
+    - main
+
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
